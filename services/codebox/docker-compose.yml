@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/services/codebox/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock # enable docker in docker
+    environment:
+      - NODE_ENV=development
+    working_dir: /usr/src/app
+    command: "yarn workspace @c/codebox dev"

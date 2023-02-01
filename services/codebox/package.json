@@ -1,0 +1,27 @@
+{
+  "name": "@c/codebox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docker": "docker-compose up --build --force-recreate",
+    "start": "node . | yarn pino-pretty",
+    "dev": "yarn && nodemon --watch ../.. . | yarn pino-pretty",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fastify": "^4.12.0",
+    "pino-pretty": "^9.1.1",
+    "vm2": "^3.9.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "deployment": {
+    "port": 8080,
+    "host": "0.0.0.0",
+    "basePath": ""
+  }
+}

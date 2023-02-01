@@ -1,0 +1,29 @@
+{
+  "name": "cantitech-assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "libs/*",
+    "services/*"
+  ],
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.3"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "pretty": "prettier --write .",
+    "dev:codebox": "yarn workspace @c/codebox docker",
+    "dev:www": "yarn workspace @c/www dev",
+    "dev": "concurrently \"npm:dev:codebox\" \"npm:dev:www\""
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
